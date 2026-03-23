@@ -1,11 +1,23 @@
-<nav class="navbar">
+<nav class="navbar" role="navigation" aria-label="Navegación principal">
   <div class="container navbar-content">
     <div class="brand-group">
-      <a href="/" class="logo-mersol"> MERSOL<span class="dot">.</span> </a>
+      <a href="#inicio" class="logo-link" (click)="closeMenu()">
+        <img
+          src="assets/brand/MERSOL.svg"
+          alt="Mersol - Mercado de la Soldadura del Sureste"
+          class="logo-mersol"
+        />
+      </a>
+
       <div class="brand-divider"></div>
+
       <div class="logo-partner">
-        <span class="partner-label">Distribuidor Autorizado</span>
-        <span class="partner-name">AUSTROMEX</span>
+        <small class="partner-label">Distribuidor Autorizado</small>
+        <img
+          src="assets/brand/AUSTROMEX.svg"
+          alt="Partner Oficial Austromex"
+          class="logo-austromex"
+        />
       </div>
     </div>
 
@@ -13,7 +25,8 @@
       class="menu-toggle"
       (click)="toggleMenu()"
       [class.open]="isMenuOpen"
-      aria-label="Abrir menú de navegación"
+      aria-label="Abrir menú"
+      [attr.aria-expanded]="isMenuOpen"
     >
       <span></span>
       <span></span>

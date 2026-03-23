@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Componente principal de la landing page
@@ -9,6 +9,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './landing-demo.component.html',
   styleUrl: './landing-demo.component.scss',
 })
-export class LandingDemoComponent {
-  // Gestionar lógica de la aplicación
+export class LandingDemoComponent implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {
+    // Cargar información de los productos
+  }
+
+  // Gestionar lógica de interacción con productos
 }

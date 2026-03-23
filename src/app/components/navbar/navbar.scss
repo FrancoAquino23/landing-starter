@@ -24,45 +24,47 @@
   .brand-group {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1.5rem;
     z-index: 1001;
 
     .logo-mersol {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--secondary);
-      letter-spacing: -0.5px;
-      line-height: 1;
+      height: 55px;
+      width: auto;
+      display: block;
+      transition: var(--transition);
 
-      .dot {
-        color: var(--primary);
+      &:hover {
+        transform: scale(1.05);
       }
     }
 
     .brand-divider {
       width: 1px;
-      height: 28px;
+      height: 32px;
       background-color: var(--border-color);
     }
 
     .logo-partner {
       display: flex;
       flex-direction: column;
-      line-height: 1.1;
+      gap: 2px;
 
+      small,
       .partner-label {
-        font-size: 0.6rem;
+        font-family: var(--font-main);
+        font-size: 0.55rem;
         text-transform: uppercase;
         color: var(--text-muted);
         letter-spacing: 0.8px;
-        font-weight: 600;
+        font-weight: 700;
+        line-height: 1.2;
+        display: block;
       }
 
-      .partner-name {
-        font-size: 0.85rem;
-        font-weight: 700;
-        color: var(--secondary);
-        letter-spacing: 1px;
+      .logo-austromex {
+        height: 28px;
+        width: auto;
+        display: block;
       }
     }
   }
@@ -139,11 +141,12 @@
     .nav-links {
       gap: 1.5rem;
     }
-    .logo-partner {
-      display: none;
-    }
+    .logo-partner,
     .brand-divider {
       display: none;
+    }
+    .logo-mersol {
+      height: 45px;
     }
   }
 }
