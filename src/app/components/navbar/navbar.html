@@ -1,0 +1,33 @@
+<nav class="navbar">
+  <div class="container navbar-content">
+    <div class="brand-group">
+      <a href="/" class="logo-mersol"> MERSOL<span class="dot">.</span> </a>
+      <div class="brand-divider"></div>
+      <div class="logo-partner">
+        <span class="partner-label">Distribuidor Autorizado</span>
+        <span class="partner-name">AUSTROMEX</span>
+      </div>
+    </div>
+
+    <button
+      class="menu-toggle"
+      (click)="toggleMenu()"
+      [class.open]="isMenuOpen"
+      aria-label="Abrir menú de navegación"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" [class.active]="isMenuOpen">
+      <li><a href="#inicio" (click)="closeMenu()">Inicio</a></li>
+      <li><a href="#nosotros" (click)="closeMenu()">Nosotros</a></li>
+      <li><a href="#productos" (click)="closeMenu()">Productos</a></li>
+
+      <li class="nav-cta">
+        <a href="#contacto" class="btn btn-primary" (click)="closeMenu()"> Cotizar Ahora </a>
+      </li>
+    </ul>
+  </div>
+</nav>

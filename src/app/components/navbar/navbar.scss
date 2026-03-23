@@ -1,0 +1,165 @@
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+
+.navbar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: var(--transition);
+
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1001;
+
+    .logo-mersol {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--secondary);
+      letter-spacing: -0.5px;
+
+      .dot {
+        color: var(--primary);
+      }
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 30px;
+      background-color: var(--border-color);
+    }
+
+    .logo-partner {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+
+      .partner-label {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        letter-spacing: 0.5px;
+        margin-bottom: 2px;
+      }
+
+      .partner-name {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--secondary);
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+
+    li a:not(.btn) {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+
+  // Menú hamburguesa (Mobile)
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+
+    span {
+      width: 25px;
+      height: 3px;
+      background-color: var(--secondary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    &.open {
+      span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (MOBILE)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .navbar .nav-links {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  // Simplificr logos
+  .navbar {
+    .brand-divider {
+      display: none;
+    }
+    .logo-partner {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: var(--bg-white);
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+      display: none;
+
+      &.active {
+        display: flex;
+      }
+
+      .nav-cta {
+        width: 100%;
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

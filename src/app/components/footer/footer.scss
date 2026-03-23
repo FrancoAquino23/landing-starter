@@ -1,0 +1,57 @@
+/* ==========================================================================
+   FOOTER STYLE
+   ========================================================================== */
+
+:host {
+  display: block;
+  width: 100%;
+  background-color: var(--secondary);
+  color: var(--white);
+  border-top: 4px solid var(--primary);
+}
+
+.main-footer {
+  padding: 3rem 0;
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-info {
+    p {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+
+      strong {
+        color: var(--white);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+    }
+
+    .brand-subtext {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+  }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 768px) {
+  .main-footer {
+    padding: 2rem 0;
+
+    .footer-info p {
+      font-size: 0.9rem;
+    }
+  }
+}
