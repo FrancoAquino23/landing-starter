@@ -30,18 +30,17 @@
 }
 
 /* ==========================================================================
-   DESIGN TOKENS
+   DESIGN TOKENS (Basados en Manual de Identidad Mersol)
    ========================================================================== */
 :root {
   // Paleta de colores Mersol
   --primary: #d2242a;
-  --primary-hover: #b21e23;
+  --primary-hover: #b71c1c;
   --secondary: #403b33;
   --gray-medium: #706e70;
   --gray-light: #a3a19e;
-  --accent: #ffa000;
 
-  // Interfaz y Fondos
+  // Interfaz & Fondos
   --bg-light: #f8f9fa;
   --bg-white: #ffffff;
   --text-main: #212121;
@@ -54,13 +53,13 @@
   --font-main: 'Montserrat', sans-serif;
   --font-size-base: 16px;
 
-  // Layout y Efectos
+  // Layout & Efectos
   --container-width: 1200px;
   --section-padding: 100px 20px;
   --border-radius: 4px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 30px -10px rgba(64, 59, 51, 0.2);
+  --shadow-md: 0 10px 30px -10px rgba(64, 59, 51, 0.3);
   --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
@@ -130,8 +129,6 @@ h6 {
 h1 {
   font-size: clamp(2.5rem, 6vw, 3.8rem);
   font-weight: 900;
-  border-left: none;
-  padding-left: 0;
 }
 
 h2 {
@@ -190,7 +187,7 @@ img {
 .btn-primary {
   background-color: var(--primary);
   color: var(--white);
-  box-shadow: 0 4px 14px 0 rgba(210, 36, 42, 0.3);
+  box-shadow: 0 4px 14px 0 rgba(210, 36, 42, 0.3); // Sombra con color primario oficial
 
   &:hover {
     background-color: var(--primary-hover);

@@ -1,60 +1,72 @@
 /* ==========================================================================
-   COMPONENT NAVBAR & TOP BAR
+   COMPONENT FOOTER STYLES
    ========================================================================== */
+
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--bg-white);
+  box-shadow: var(--shadow-sm);
+}
 
 .top-bar {
   background-color: var(--secondary);
   color: var(--white);
   padding: 8px 0;
-  font-family: var(--font-main);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+
+  @media (max-width: 991px) {
+    display: none;
+  }
 
   .top-bar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
   }
 
   .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
     .contact-item {
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 500;
       display: flex;
       align-items: center;
       gap: 8px;
-      transition: var(--transition);
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease-in-out;
+
+      img {
+        width: 16px;
+        transition: all 0.3s ease-in-out;
+        filter: brightness(0) invert(1);
+        opacity: 0.7;
+      }
 
       &:hover {
-        color: var(--primary);
+        color: #ffffff;
+        img {
+          opacity: 1;
+          transform: scale(1.1);
+        }
       }
-    }
-  }
-
-  app-social-links ::ng-deep .social-container {
-    padding: 0;
-    gap: 1rem;
-
-    img {
-      width: 16px;
-      height: 16px;
     }
   }
 }
 
 .navbar {
-  height: 90px;
+  height: 80px;
   display: flex;
   align-items: center;
-  background-color: var(--bg-white);
-  border-bottom: 3px solid var(--primary);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  background: var(--bg-white);
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+  z-index: 1200;
 
   .navbar-content {
     display: flex;
@@ -62,158 +74,161 @@
     align-items: center;
     width: 100%;
   }
+}
 
-  .brand-group {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    height: 100%;
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 1201;
 
-    .logo-mersol {
-      height: 48px;
-      width: auto;
-      flex-shrink: 0;
-    }
-
-    .brand-divider {
-      width: 1px;
-      height: 35px;
-      background-color: var(--border-color);
-      opacity: 0.3;
-      display: block;
-    }
-
-    .partner-horizontal {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-
-      .logo-partner-img {
-        height: 40px;
-        width: auto;
-        object-fit: contain;
-      }
-
-      .partner-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        border-left: 1px solid var(--border-color);
-        padding-left: 0.8rem;
-
-        .partner-tag {
-          font-family: var(--font-main);
-          font-size: 9px;
-          text-transform: uppercase;
-          color: var(--text-muted);
-          font-weight: 800;
-          line-height: 1.2;
-          white-space: nowrap;
-        }
-      }
-    }
+  .logo-mersol {
+    height: 40px;
   }
+  .brand-divider {
+    width: 1px;
+    height: 25px;
+    background-color: #ddd;
+  }
+  .logo-partner-img {
+    height: 28px;
+  }
+  .partner-tag {
+    font-family: var(--font-primary);
+    font-size: 0.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--gray-medium);
+  }
+}
 
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+
+  @media (max-width: 991px) {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: #ffffff;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding: 20px;
+    gap: 2rem;
 
-    li a:not(.btn) {
-      font-family: var(--font-main);
-      font-size: 0.85rem;
-      font-weight: 700;
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    transform: translateX(100%);
+    z-index: 1050;
+
+    &.active {
+      transform: translateX(0);
+    }
+
+    li a {
+      font-family: var(--font-primary) !important;
+      font-weight: 900;
+      font-size: 2rem;
       color: var(--secondary);
       text-transform: uppercase;
-      transition: var(--transition);
-
-      &:hover {
-        color: var(--primary);
-      }
+      display: block;
+      padding: 15px 0;
     }
   }
 
-  .menu-toggle {
-    display: none;
+  li a {
+    font-family: var(--font-primary);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--secondary);
+    text-decoration: none;
+    transition: var(--transition);
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+
+.mobile-menu-contact {
+  display: none;
+  margin-bottom: 2rem;
+  @media (max-width: 991px) {
+    display: block;
+  }
+
+  .contact-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  .menu-contact-btn {
+    display: flex;
     flex-direction: column;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
 
+    .icon-box {
+      width: 75px;
+      height: 75px;
+      background-color: var(--primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 20px rgba(210, 36, 42, 0.25);
+      img {
+        width: 35px;
+        filter: brightness(0) invert(1) !important;
+      }
+    }
     span {
-      width: 25px;
-      height: 2px;
-      background-color: var(--secondary);
-      transition: 0.3s;
+      font-family: var(--font-primary) !important;
+      font-weight: 800;
+      color: var(--secondary);
+      font-size: 0.8rem;
     }
   }
 }
 
-/* ==========================================================================
-   MEDIA QUERIES (RESPONSIVE)
-   ========================================================================== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  z-index: 1300;
 
-@media (max-width: 992px) {
-  .top-bar {
-    display: none;
+  span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--secondary);
+    border-radius: 3px;
+    transition: 0.3s;
   }
 
-  .navbar {
-    height: 80px;
-
-    .partner-horizontal {
-      display: flex !important;
-      gap: 0.5rem;
-
-      .logo-partner-img {
-        height: 30px;
-      }
-
-      .partner-info {
-        display: none;
-      }
-    }
-
-    .brand-divider {
-      display: block !important;
-      height: 25px;
-    }
-
-    .logo-mersol {
-      height: 35px;
-    }
-
-    .menu-toggle {
-      display: flex;
-    }
-
-    .nav-links {
-      position: absolute;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      background-color: var(--bg-white);
-      flex-direction: column;
-      padding: 2.5rem 1.5rem;
-      border-bottom: 4px solid var(--primary);
-      transform: translateY(-150%);
-      transition: 0.4s ease-in-out;
-      display: flex;
-
-      &.active {
-        transform: translateY(0);
-      }
-    }
+  @media (max-width: 991px) {
+    display: flex;
   }
-}
 
-@media (max-width: 480px) {
-  .navbar .brand-group {
-    gap: 0.8rem;
-    .brand-divider {
-      margin: 0 2px;
+  &.open span {
+    &:nth-child(1) {
+      transform: translateY(9.5px) rotate(45deg);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: translateY(-9.5px) rotate(-45deg);
     }
   }
 }

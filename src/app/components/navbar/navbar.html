@@ -1,62 +1,83 @@
-<div class="top-bar">
-  <div class="container top-bar-content">
-    <div class="contact-info">
-      <a href="tel:+520000000000" class="contact-item">
-        <i class="phone-icon"></i>
-        <span>+52 (999) 000 0000</span>
-      </a>
+<header class="header-wrapper">
+  <!-- TOP BAR (SOCIAL MEDIA) -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="contact-info">
+        <a href="tel:+529990000000" class="contact-item">
+          <img src="assets/brand/socials/phone.svg" alt="Teléfono" class="contact-icon-svg" />
+          <span>+52 (999) 000 0000</span>
+        </a>
+        <span class="contact-divider"></span>
+        <a href="mailto:ventas@mersol.com.mx" class="contact-item">
+          <img src="assets/brand/socials/mail.svg" alt="Correo" class="contact-icon-svg" />
+          <span>ventas@mersol.com.mx</span>
+        </a>
+      </div>
+      <app-social-links></app-social-links>
     </div>
-
-    <app-social-links></app-social-links>
   </div>
-</div>
 
-<nav class="navbar" role="navigation" aria-label="Navegación principal">
-  <div class="container navbar-content">
-    <div class="brand-group">
-      <a href="#inicio" class="logo-link" (click)="closeMenu()">
-        <img
-          src="assets/brand/MERSOL.svg"
-          alt="Mersol - Mercado de la Soldadura del Sureste"
-          class="logo-mersol"
-        />
-      </a>
-
-      <div class="brand-divider"></div>
-
-      <div class="partner-horizontal">
-        <img
-          src="assets/brand/AUSTROMEX.svg"
-          alt="Partner Oficial Austromex"
-          class="logo-partner-img"
-        />
-        <div class="partner-info">
-          <span class="partner-tag">Distribuidor</span>
-          <span class="partner-tag">Autorizado</span>
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="container navbar-content">
+      <!-- BRAND LOGO -->
+      <div class="brand-group">
+        <a href="#inicio" class="logo-link" (click)="closeMenu()">
+          <img src="assets/brand/MERSOL.svg" alt="Mersol" class="logo-mersol" />
+        </a>
+        <div class="brand-divider"></div>
+        <div class="partner-horizontal">
+          <img
+            src="assets/brand/AUSTROMEX.svg"
+            alt="Partner Oficial Austromex"
+            class="logo-partner-img"
+          />
+          <div class="partner-info">
+            <span class="partner-tag">Distribuidor</span>
+            <span class="partner-tag">Autorizado</span>
+          </div>
         </div>
       </div>
+
+      <!-- MENU -->
+      <button
+        class="menu-toggle"
+        (click)="toggleMenu()"
+        [class.open]="isMenuOpen"
+        aria-label="Abrir menú"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" [class.active]="isMenuOpen">
+        <!-- CONTACTS -->
+        <li class="mobile-menu-contact">
+          <div class="contact-buttons-container">
+            <a href="tel:+529990000000" class="menu-contact-btn">
+              <div class="icon-box">
+                <img src="assets/brand/socials/phone.svg" alt="Llamar" />
+              </div>
+              <span>Llamar</span>
+            </a>
+            <a href="mailto:ventas@mersol.com.mx" class="menu-contact-btn">
+              <div class="icon-box">
+                <img src="assets/brand/socials/mail.svg" alt="Correo" />
+              </div>
+              <span>Correo</span>
+            </a>
+          </div>
+        </li>
+
+        <li><a href="#inicio" (click)="closeMenu()">Inicio</a></li>
+        <li><a href="#nosotros" (click)="closeMenu()">Nosotros</a></li>
+        <li><a href="#productos" (click)="closeMenu()">Productos</a></li>
+
+        <li class="nav-cta">
+          <a href="#contacto" class="btn btn-primary" (click)="closeMenu()"> Cotizar Ahora </a>
+        </li>
+      </ul>
     </div>
-
-    <button
-      class="menu-toggle"
-      (click)="toggleMenu()"
-      [class.open]="isMenuOpen"
-      aria-label="Abrir menú"
-      [attr.aria-expanded]="isMenuOpen"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <ul class="nav-links" [class.active]="isMenuOpen">
-      <li><a href="#inicio" (click)="closeMenu()">Inicio</a></li>
-      <li><a href="#nosotros" (click)="closeMenu()">Nosotros</a></li>
-      <li><a href="#productos" (click)="closeMenu()">Productos</a></li>
-
-      <li class="nav-cta">
-        <a href="#contacto" class="btn btn-primary" (click)="closeMenu()"> Cotizar Ahora </a>
-      </li>
-    </ul>
-  </div>
-</nav>
+  </nav>
+</header>
