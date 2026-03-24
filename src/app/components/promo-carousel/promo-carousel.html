@@ -1,0 +1,15 @@
+<div class="promo-container">
+  @for (promo of promociones; track promo.id) {
+    <div class="promo-item">
+      <a [href]="promo.link" target="_blank" rel="noopener noreferrer" class="promo-link">
+        <div class="image-wrapper">
+          @if (isMobile$ | async) {
+            <img [src]="promo.imgMobile" [alt]="promo.alt" class="promo-img img-mobile" />
+          } @else {
+            <img [src]="promo.imgDesktop" [alt]="promo.alt" class="promo-img img-desktop" />
+          }
+        </div>
+      </a>
+    </div>
+  }
+</div>

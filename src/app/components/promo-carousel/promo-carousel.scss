@@ -1,0 +1,93 @@
+/* ==========================================================================
+   COMPONENT PROMO
+   ========================================================================== */
+
+.promo-container {
+  width: 100%;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.promo-item {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: calc(var(--border-radius) * 1.5);
+  box-shadow: var(--shadow-lg);
+  background-color: #f8f9fa;
+  transition: var(--transition);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.promo-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+
+  .promo-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    animation: promoFadeIn 0.6s ease-out;
+    border-radius: inherit;
+  }
+}
+
+@keyframes promoFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .promo-container {
+    margin-top: 2rem;
+    padding: 0 1rem;
+  }
+
+  .promo-item {
+    max-width: 450px;
+    border-radius: var(--border-radius);
+  }
+
+  .image-wrapper {
+    .promo-img {
+      filter: contrast(102%);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-container {
+    margin-top: 1.5rem;
+  }
+
+  .promo-item {
+    max-width: 100%;
+  }
+}
