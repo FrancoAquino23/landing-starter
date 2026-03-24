@@ -17,20 +17,46 @@
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 20px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2.5rem;
     text-align: center;
+  }
+
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .footer-label {
+      font-family: var(--font-main);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    app-social-links ::ng-deep .social-container {
+      gap: 1.5rem;
+      img {
+        width: 26px;
+        height: 26px;
+        filter: brightness(1);
+        transition: transform 0.3s ease;
+      }
+    }
   }
 
   .footer-info {
     p {
-      font-size: 0.95rem;
+      font-size: 1rem;
       margin-bottom: 0.5rem;
       color: rgba(255, 255, 255, 0.9);
-      letter-spacing: 0.3px;
+      line-height: 1.6;
 
       strong {
         color: var(--white);
@@ -42,21 +68,33 @@
 
     .brand-subtext {
       display: block;
-      color: var(--accent);
+      color: var(--text-muted);
       font-size: 0.85rem;
-      font-weight: 500;
-      font-style: italic;
-      opacity: 0.8;
+      font-weight: 400;
+      margin-top: 0.5rem;
+      opacity: 0.7;
     }
   }
 
-  .footer-copyright {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  .footer-legal {
+    display: flex;
+    gap: 1rem;
     font-size: 0.8rem;
-    color: var(--text-muted);
-    width: 100%;
+    margin-top: 1rem;
+
+    a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: var(--transition);
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+
+    .separator {
+      color: rgba(255, 255, 255, 0.2);
+    }
   }
 }
 
@@ -67,8 +105,21 @@
   .main-footer {
     padding: 3rem 0 1.5rem;
 
+    .footer-container {
+      gap: 2rem;
+    }
+
     .footer-info p {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-legal {
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .separator {
+        display: none;
+      }
     }
   }
 }

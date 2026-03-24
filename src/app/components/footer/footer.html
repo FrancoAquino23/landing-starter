@@ -1,8 +1,21 @@
 <footer class="main-footer">
   <div class="footer-container">
+    <div class="footer-social">
+      <p class="footer-label">Síguenos en nuestras redes</p>
+      <app-social-links></app-social-links>
+    </div>
+
     <div class="footer-info">
-      <p>&copy; 2026 <strong>Mersol</strong>. Todos los derechos reservados.</p>
-      <small class="brand-subtext"> Una solución integral para la industria. </small>
+      <p>&copy; {{ currentYear }} <strong>Mersol</strong>. Todos los derechos reservados.</p>
+      <small class="brand-subtext">
+        Mercado de la Soldadura del Sureste - Una solución integral para la industria.
+      </small>
+    </div>
+
+    <div class="footer-legal">
+      <a href="#aviso-privacidad">Aviso de Privacidad</a>
+      <span class="separator">|</span>
+      <a href="#terminos">Términos y Condiciones</a>
     </div>
   </div>
 </footer>

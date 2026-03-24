@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SocialLinks } from '../../shared/components/social-links/social-links';
 
-// Componente de pie de página (Móvil - Hamburguesa)
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, SocialLinks],
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
 })
