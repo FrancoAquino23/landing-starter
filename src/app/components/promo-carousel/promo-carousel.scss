@@ -2,92 +2,144 @@
    COMPONENT PROMO
    ========================================================================== */
 
-.promo-container {
+.promo-viewport {
   width: 100%;
-  margin-top: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
+  overflow: hidden;
+  background-color: #f8f9fa;
   z-index: 5;
+  cursor: pointer;
+  border-radius: var(--border-radius, 8px);
 }
 
-.promo-item {
+.promo-track {
+  display: flex;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+.promo-slide {
+  min-width: 100%;
+  max-width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  border-radius: calc(var(--border-radius) * 1.5);
-  box-shadow: var(--shadow-lg);
-  background-color: #f8f9fa;
-  transition: var(--transition);
+  aspect-ratio: 16 / 6;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    .promo-img {
+      transform: scale(1.01);
+    }
   }
 }
 
 .promo-link {
   display: block;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.image-wrapper {
-  position: relative;
   width: 100%;
-  line-height: 0;
-  display: flex;
-  justify-content: center;
+  height: 100%;
+  text-decoration: none;
+}
 
-  .promo-img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    animation: promoFadeIn 0.6s ease-out;
-    border-radius: inherit;
+picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.promo-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* ==========================================================================
+   CAROUSEL
+   ========================================================================== */
+.promo-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+  padding: 0 15px;
+  z-index: 10;
+
+  .nav-btn {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background: var(--primary, #d2242a);
+      color: white;
+    }
   }
 }
 
-@keyframes promoFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
+/* ==========================================================================
+   CAROUSEL INDICATORS
+   ========================================================================== */
+.promo-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+
+    &.active {
+      background: var(--primary, #fbfbfb);
+      width: 20px;
+      border-radius: 4px;
+    }
   }
 }
 
 /* ==========================================================================
    MEDIA QUERIES (RESPONSIVE)
    ========================================================================== */
-@media (max-width: 992px) {
-  .promo-container {
-    margin-top: 2rem;
-    padding: 0 1rem;
+@media (max-width: 991px) {
+  .promo-slide {
+    aspect-ratio: 4 / 5;
   }
 
-  .promo-item {
-    max-width: 450px;
-    border-radius: var(--border-radius);
+  .promo-nav {
+    display: none;
   }
 
-  .image-wrapper {
-    .promo-img {
-      filter: contrast(102%);
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .promo-container {
-    margin-top: 1.5rem;
-  }
-
-  .promo-item {
-    max-width: 100%;
+  .promo-dots {
+    bottom: 12px;
   }
 }

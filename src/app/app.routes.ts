@@ -1,16 +1,13 @@
 import { Routes } from '@angular/router';
 
-// Configurar rutas principales
 export const routes: Routes = [
   {
     path: '',
-    // Verificar coincidencia de la ruta con estructura de código
     loadComponent: () =>
       import('./pages/landing-demo.component/landing-demo.component').then(
         (m) => m.LandingDemoComponent,
       ),
 
-    // Metadatos (Open Graph)
     data: {
       title: 'Mersol | Soluciones Industriales y Distribuidor Austromex',
       description:
@@ -19,7 +16,6 @@ export const routes: Routes = [
     },
   },
   {
-    // Manejar URL's no definidas (Error - 404)
     path: '**',
     redirectTo: '',
     pathMatch: 'full',

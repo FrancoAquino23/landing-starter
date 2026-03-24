@@ -1,15 +1,63 @@
-<div class="promo-container">
-  @for (promo of promociones; track promo.id) {
-    <div class="promo-item">
-      <a [href]="promo.link" target="_blank" rel="noopener noreferrer" class="promo-link">
-        <div class="image-wrapper">
-          @if (isMobile$ | async) {
-            <img [src]="promo.imgMobile" [alt]="promo.alt" class="promo-img img-mobile" />
-          } @else {
-            <img [src]="promo.imgDesktop" [alt]="promo.alt" class="promo-img img-desktop" />
-          }
-        </div>
-      </a>
+<div
+  class="promo-viewport"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="Promociones destacadas"
+  (mouseenter)="stopAutoPlay()"
+  (mouseleave)="startAutoPlay()"
+>
+  <div class="promo-track" [style.transform]="'translateX(-' + currentIndex() * 100 + '%)'">
+    @for (promo of promociones; track promo.id; let i = $index) {
+      <div
+        class="promo-slide"
+        role="group"
+        aria-roledescription="slide"
+        [aria-label]="i + 1 + ' de ' + promociones.length"
+      >
+        <a
+          [href]="promo.link"
+          class="promo-link"
+          [target]="promo.link.startsWith('http') ? '_blank' : '_self'"
+          rel="noopener noreferrer"
+        >
+          <picture>
+            <source media="(max-width: 991px)" [srcset]="promo.imgMobile" />
+            <source media="(min-width: 992px)" [srcset]="promo.imgDesktop" />
+
+            <img
+              [src]="promo.imgDesktop"
+              [alt]="promo.alt || 'Promoción Mersol'"
+              class="promo-img"
+              fetchpriority="high"
+              loading="eager"
+            />
+          </picture>
+        </a>
+      </div>
+    }
+  </div>
+
+  @if (promociones.length > 1) {
+    <div class="promo-nav">
+      <button class="nav-btn prev" (click)="prevSlide()" aria-label="Anterior">
+        <span aria-hidden="true">‹</span>
+      </button>
+
+      <button class="nav-btn next" (click)="nextSlide()" aria-label="Siguiente">
+        <span aria-hidden="true">›</span>
+      </button>
+    </div>
+
+    <div class="promo-dots">
+      @for (p of promociones; track p.id; let i = $index) {
+        <button
+          class="dot"
+          [class.active]="i === currentIndex()"
+          (click)="goToSlide(i)"
+          [attr.aria-label]="'Ir a la diapositiva ' + (i + 1)"
+          [attr.aria-current]="i === currentIndex() ? 'true' : 'false'"
+        ></button>
+      }
     </div>
   }
 </div>

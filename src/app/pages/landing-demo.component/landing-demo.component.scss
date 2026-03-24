@@ -5,6 +5,7 @@
 :host {
   display: block;
   width: 100%;
+  scroll-behavior: smooth;
 }
 
 main {
@@ -16,6 +17,35 @@ main {
 section {
   position: relative;
   width: 100%;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   PROMO
+   ========================================================================== */
+.promo-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 60px 0;
+  border-bottom: 1px solid #f0f0f0;
+
+  @media (max-width: 991px) {
+    padding: 30px 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+
+.content-section {
+  padding: 80px 0;
+
+  @media (max-width: 768px) {
+    padding: 50px 0;
+  }
 }
 
 /* ==========================================================================

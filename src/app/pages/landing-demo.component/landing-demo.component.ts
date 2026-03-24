@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// Importar los componentes
 import { HeroComponent } from '../../shared/components/hero/hero';
 import { NosotrosComponent } from '../../sections/nosotros/nosotros';
+import { PromoCarouselComponent } from '../../components/promo-carousel/promo-carousel';
 
 @Component({
   selector: 'app-landing-demo',
   standalone: true,
-  imports: [CommonModule, HeroComponent, NosotrosComponent],
+  imports: [CommonModule, HeroComponent, PromoCarouselComponent, NosotrosComponent],
   templateUrl: './landing-demo.component.html',
   styleUrl: './landing-demo.component.scss',
 })
-export class LandingDemoComponent implements OnInit {
-  ngOnInit(): void {}
-}
+export class LandingDemoComponent {}

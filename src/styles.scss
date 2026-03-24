@@ -33,7 +33,7 @@
    DESIGN TOKENS
    ========================================================================== */
 :root {
-  // Paleta de colores
+  // Paleta de colores Mersol
   --primary: #d2242a;
   --primary-hover: #b21e23;
   --secondary: #403b33;
@@ -41,12 +41,12 @@
   --gray-light: #a3a19e;
   --accent: #ffa000;
 
-  // Interfaz
+  // Interfaz y Fondos
   --bg-light: #f8f9fa;
   --bg-white: #ffffff;
   --text-main: #212121;
   --text-muted: var(--gray-medium);
-  --border-color: var(--gray-light);
+  --border-color: #eeeeee;
   --white: #ffffff;
 
   // Tipografía
@@ -54,13 +54,14 @@
   --font-main: 'Montserrat', sans-serif;
   --font-size-base: 16px;
 
-  // Layout
+  // Layout y Efectos
   --container-width: 1200px;
   --section-padding: 100px 20px;
   --border-radius: 4px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 10px 30px -10px rgba(64, 59, 51, 0.2);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================================================
@@ -77,7 +78,7 @@
 html {
   scroll-behavior: smooth;
   font-size: var(--font-size-base);
-  scroll-padding-top: 80px;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -92,7 +93,7 @@ body {
 }
 
 /* ==========================================================================
-   CONTAINERS
+   CONTAINERS & LAYOUT
    ========================================================================== */
 .main-content {
   flex: 1 0 auto;
@@ -110,7 +111,7 @@ body {
 }
 
 /* ==========================================================================
-   VISUAL ELEMENTS
+   TYPOGRAPHY (Halenoir & Montserrat)
    ========================================================================== */
 h1,
 h2,
@@ -123,29 +124,31 @@ h6 {
   color: var(--secondary);
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(2.5rem, 6vw, 3.8rem);
   font-weight: 900;
-  border-left: 8px solid var(--primary);
-  padding-left: 20px;
+  border-left: none;
+  padding-left: 0;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 700;
   position: relative;
   display: inline-block;
+  padding-bottom: 15px;
 
   &::after {
     content: '';
-    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 60px;
     height: 4px;
     background: var(--primary);
-    margin-top: 10px;
   }
 }
 
@@ -197,12 +200,13 @@ img {
 }
 
 .btn-outline {
-  border-color: var(--primary);
-  color: var(--primary);
+  border: 2px solid var(--secondary);
+  color: var(--secondary);
 
   &:hover {
-    background-color: var(--primary);
+    background-color: var(--secondary);
     color: var(--white);
+    transform: translateY(-3px);
   }
 }
 
@@ -216,11 +220,14 @@ img {
 
   h1 {
     font-size: 2.25rem;
-    border-left-width: 4px;
   }
 
   h2 {
     font-size: 1.8rem;
+    &::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   .btn {
