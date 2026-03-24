@@ -1,0 +1,172 @@
+/* ==========================================================================
+   COMPONENT NOSOTROS
+   ========================================================================== */
+
+.nosotros-section {
+  padding: 100px 0;
+  background-color: #ffffff !important;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+
+  &::before,
+  &::after,
+  *::before,
+  *::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .nosotros-main {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 6rem;
+    align-items: center;
+    margin-bottom: 6rem;
+    position: relative;
+
+    .subtitle {
+      display: block;
+      font-family: var(--font-main);
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+      font-family: var(--font-primary);
+      color: var(--secondary);
+      position: relative;
+      padding-left: 20px;
+      border-left: 5px solid var(--primary);
+    }
+
+    .description {
+      font-family: var(--font-main);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-main);
+      margin-bottom: 1.5rem;
+
+      strong {
+        color: var(--secondary);
+        font-weight: 700;
+      }
+    }
+  }
+
+  .nosotros-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .warranty-badge-pure {
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 50px 40px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      transition: var(--transition);
+      min-width: 280px;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .number {
+        display: block;
+        font-family: var(--font-primary);
+        font-size: 4rem;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .txt {
+        display: block;
+        font-family: var(--font-main);
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  .nosotros-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+
+    .info-card {
+      background-color: var(--bg-light);
+      padding: 45px 35px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      border-top: 5px solid transparent;
+
+      &:hover {
+        transform: translateY(-10px);
+        background-color: var(--white);
+        box-shadow: var(--shadow-md);
+        border-top-color: var(--primary);
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .nosotros-section {
+    padding: 60px 0;
+
+    .nosotros-main {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+
+      h2 {
+        border-left: none;
+        padding-left: 0;
+        display: inline-block;
+        margin-bottom: 2.5rem;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 80px;
+          height: 4px;
+          background-color: var(--primary);
+          margin: 15px auto 0;
+        }
+      }
+    }
+
+    .nosotros-visual {
+      .warranty-badge-pure {
+        min-width: 240px;
+        padding: 40px 30px;
+
+        .number {
+          font-size: 3rem;
+        }
+        .txt {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .nosotros-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
