@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SocialLinks } from '../../shared/components/social-links/social-links';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, SocialLinks],
+  imports: [CommonModule],
   templateUrl: './footer.html',
-  styleUrl: './footer.scss',
+  styleUrls: ['./footer.scss'],
 })
 export class FooterComponent {
-  // Mostrar año actual
-  protected readonly currentYear = new Date().getFullYear();
+  currentYear: number = new Date().getFullYear();
+
+  constructor() {}
+  // Abrir página oficial de WhatsApp
+  openWhatsApp() {
+    window.open('https://wa.me/525555571966', '_blank');
+  }
 }

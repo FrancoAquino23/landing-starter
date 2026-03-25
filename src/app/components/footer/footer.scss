@@ -1,141 +1,234 @@
 /* ==========================================================================
-    COMPONENT FOOTER STYLES
+   FOOTER COMPONENT STYLES
    ========================================================================== */
 
 :host {
   display: block;
   width: 100%;
-  background-color: var(--secondary);
-  color: var(--white);
-  border-top: 4px solid var(--primary);
 }
 
 .main-footer {
-  padding: 5rem 0 2rem;
+  background-color: var(--secondary);
+  color: #cccccc;
+  font-family: 'Halenoir', sans-serif;
+  position: relative;
+  padding-bottom: 10px;
 
-  .footer-container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-    text-align: center;
-  }
+  // Banner (CTA)
+  .footer-cta-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, #a81d22 100%);
+    padding: 12px 0;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-sm);
 
-  .footer-social {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
+    .cta-content-inline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
 
-    .footer-label {
-      font-family: var(--font-primary);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 700;
-      color: var(--white);
-      opacity: 0.9;
-      margin-bottom: 0.5rem;
-    }
+      .cta-text .single-line-question {
+        color: var(--white);
+        margin: 0;
+        font-family: 'Halenoir', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
 
-    app-social-links ::ng-deep .social-container {
-      gap: 1.8rem;
-
-      img {
-        width: 24px;
-        height: 24px;
-        filter: brightness(0) invert(1);
-        transition: var(--transition);
+      .btn-whatsapp-cta {
+        background-color: var(--white);
+        color: var(--primary);
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-family: 'Halenoir', sans-serif;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s ease;
 
         &:hover {
-          transform: translateY(-5px);
-          filter: none;
+          transform: translateY(-2px);
+        }
+        .wa-icon {
+          width: 16px;
+          filter: invert(15%) sepia(95%) saturate(4000%) hue-rotate(350deg);
         }
       }
     }
   }
 
-  .footer-info {
-    p {
-      font-family: var(--font-main);
-      font-size: 1.05rem;
-      margin-bottom: 0.5rem;
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.6;
+  /* ==========================================================================
+   PRINCIPAL GRID
+   ========================================================================== */
 
-      strong {
-        font-family: var(--font-primary);
-        color: var(--white);
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        font-weight: 900;
+  .footer-main-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.6fr;
+    gap: 2rem;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    align-items: start;
+  }
+
+  // Logos
+  .branding {
+    .brand-partnership {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 1rem;
+
+      .brand-logo-clean {
+        height: auto;
+        &.main-logo {
+          height: 50px;
+        }
+        &.mersol-logo {
+          height: 42px;
+        }
+      }
+
+      .brand-separator {
+        width: 1px;
+        height: 35px;
+        background-color: rgba(255, 255, 255, 0.15);
       }
     }
 
-    .brand-subtext {
-      display: block;
-      color: var(--gray-light);
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-top: 0.8rem;
-      letter-spacing: 0.5px;
+    .brand-tagline {
+      font-size: 0.8rem;
+      color: #bbbbbb;
+      white-space: nowrap;
+      margin: 0;
     }
   }
 
-  .footer-legal {
-    display: flex;
-    gap: 1.5rem;
-    font-size: 0.75rem;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    width: 100%;
-    justify-content: center;
+  // Contactos & redes sociales
+  .footer-col {
+    h4 {
+      font-size: 0.9rem;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      position: relative;
 
-    a {
-      color: rgba(255, 255, 255, 0.4);
-      text-decoration: none;
-      transition: var(--transition);
-      font-family: var(--font-main);
-
-      &:hover {
-        color: var(--primary);
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 20px;
+        height: 2px;
+        background-color: var(--primary);
       }
     }
 
-    .separator {
-      color: rgba(255, 255, 255, 0.1);
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        margin-bottom: 0.5rem;
+        font-size: 0.82rem;
+        color: #cccccc;
+
+        &.icon-inline {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 0.8rem;
+        }
+
+        strong {
+          color: #eeeeee;
+          display: block;
+          font-size: 0.7rem;
+          margin-bottom: 2px;
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          transition: color 0.3s;
+          &:hover {
+            color: var(--primary);
+          }
+        }
+
+        .li-icon {
+          width: 14px;
+          filter: brightness(0) invert(0.8);
+        }
+      }
     }
+  }
+
+  // Productos
+  .products-nav {
+    .products-grid-wrapper {
+      display: flex;
+      gap: 30px;
+
+      .resource-links {
+        flex: 1;
+        li {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .social-wrapper {
+    margin-top: 1.2rem;
+
+    .social-label {
+      color: #eeeeee;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .footer-social-icons {
+      display: flex;
+      gap: 12px;
+      img {
+        width: 16px;
+        filter: brightness(0) invert(0.8);
+        transition: transform 0.3s;
+        &:hover {
+          transform: translateY(-2px);
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+  }
+
+  // Footer
+  .footer-bottom {
+    padding: 15px 0;
+    font-size: 0.75rem;
+    color: #777777;
   }
 }
 
 /* ==========================================================================
-    MEDIA QUERIES (RESPONSIVE)
+   MEDIA QUERIES (RESPONSIVE)
    ========================================================================== */
-@media (max-width: 768px) {
-  .main-footer {
-    padding: 4rem 0 2rem;
 
-    .footer-container {
-      gap: 2.5rem;
+@media (max-width: 1024px) {
+  .main-footer .footer-main-grid {
+    grid-template-columns: 1fr 1fr;
+    .branding {
+      grid-column: span 2;
+      margin-bottom: 0.5rem;
     }
-
-    .footer-info p {
-      font-size: 0.95rem;
-      padding: 0 10px;
-    }
-
-    .footer-legal {
-      flex-direction: column;
-      gap: 0.8rem;
-      align-items: center;
-
-      .separator {
-        display: none;
-      }
+    .branding .brand-tagline {
+      white-space: normal;
     }
   }
 }
