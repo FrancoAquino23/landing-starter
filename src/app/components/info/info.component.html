@@ -1,0 +1,53 @@
+<!-- ==========================================================================
+     INFO COMPONENT STRUCTURE
+     ======================================================================= -->
+
+<section class="nosotros-section">
+  <span id="nosotros" class="scroll-anchor"></span>
+
+  <div class="container">
+    <div class="nosotros-main">
+      <div class="nosotros-content">
+        <span class="subtitle">Liderazgo y Respaldo Regional</span>
+        <h2>{{ sectionTitle() }}</h2>
+
+        <p class="description">
+          {{ mainDescription() }}
+        </p>
+      </div>
+
+      <!-- KPI'S -->
+      <div class="nosotros-stats-grid">
+        @for (stat of stats(); track stat.label) {
+          <div class="stat-card" [class.highlight-red]="stat.highlight">
+            <span class="stat-number">{{ stat.number }}</span>
+            <span class="stat-label">{{ stat.label }}</span>
+          </div>
+        }
+
+        <div class="osa-tag-full">
+          <img src="assets/brand/icons/award.svg" alt="Certificación oSa" class="osa-icon" />
+          <span>Seguridad avalada por <strong>oSa Alemania</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BENEFITS -->
+    <div class="nosotros-grid">
+      @for (item of beneficios(); track item.titulo) {
+        <article class="info-card">
+          <div class="card-header">
+            <img [src]="item.icon" [alt]="item.titulo" class="pilar-icon" />
+            <h3>{{ item.titulo }}</h3>
+          </div>
+          <p>{{ item.desc }}</p>
+        </article>
+      }
+    </div>
+
+    <!-- QUOTE -->
+    <div class="nosotros-footer-quote">
+      <blockquote class="quote-text">Tu éxito es el nuestro — Grupo Austromex</blockquote>
+    </div>
+  </div>
+</section>

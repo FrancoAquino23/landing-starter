@@ -1,46 +1,39 @@
 /* ==========================================================================
-   FONT (Halenoir) - Asegúrate de que los archivos existan en esta ruta
+   FUENTES (Halenoir)
    ========================================================================== */
 @font-face {
   font-family: 'Halenoir';
-  src: url('./assets/brand/font/Halenoir-Regular.otf') format('opentype');
+  src: url('assets/brand/font/Halenoir-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Halenoir';
-  src: url('./assets/brand/font/Halenoir-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Halenoir';
-  src: url('./assets/brand/font/Halenoir-Bold.otf') format('opentype');
+  src: url('assets/brand/font/Halenoir-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Halenoir';
-  src: url('./assets/brand/font/Halenoir-Black.otf') format('opentype');
+  src: url('assets/brand/font/Halenoir-Black.otf') format('opentype');
   font-weight: 900;
   font-style: normal;
 }
 
 /* ==========================================================================
-   DESIGN TOKENS (Estrategia Austromex x Mersol)
+   DESIGN TOKENS
    ========================================================================== */
 :root {
-  // Paleta de colores Mersol (Identidad Visual)
+  // Paleta de colores oficial
   --primary: #d2242a;
   --primary-hover: #b71c1c;
   --secondary: #403b33;
   --gray-medium: #706e70;
   --gray-light: #a3a19e;
 
-  // Interfaz & Fondos
+  // Interfaz
   --bg-light: #f8f9fa;
   --bg-white: #ffffff;
   --text-main: #212121;
@@ -58,14 +51,11 @@
   --section-padding: 100px 20px;
   --border-radius: 4px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 30px -10px rgba(64, 59, 51, 0.3);
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
   --navbar-height: 85px;
 }
 
 /* ==========================================================================
-   RENDER & BASE (Instant Jump Configuration)
+   BASE & RENDER
    ========================================================================== */
 * {
   margin: 0;
@@ -77,6 +67,7 @@
 
 html {
   font-size: var(--font-size-base);
+  scroll-behavior: smooth;
   scroll-padding-top: var(--navbar-height);
 }
 
@@ -86,18 +77,11 @@ body {
   background-color: var(--bg-white);
   line-height: 1.6;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
 /* ==========================================================================
-   CONTAINERS & LAYOUT
+   LAYOUT COMPONENTS
    ========================================================================== */
-.main-content {
-  flex: 1 0 auto;
-}
-
 .container {
   width: 100%;
   max-width: var(--container-width);
@@ -110,20 +94,17 @@ body {
 }
 
 /* ==========================================================================
-   TYPOGRAPHY
+   TIPOGRAFÍA GLOBAL
    ========================================================================== */
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
+h4 {
   font-family: var(--font-primary);
   text-transform: uppercase;
   color: var(--secondary);
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  letter-spacing: -0.01em;
 }
 
 h1 {
@@ -135,7 +116,6 @@ h2 {
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 700;
   position: relative;
-  display: inline-block;
   padding-bottom: 15px;
 
   &::after {
@@ -149,25 +129,12 @@ h2 {
   }
 }
 
-h3 {
-  font-size: 1.75rem;
-  font-weight: 700;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: var(--transition);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.text-highlight {
+  color: var(--primary);
 }
 
 /* ==========================================================================
-   GLOBAL COMPONENTS
+   BOTONES GLOBALES
    ========================================================================== */
 .btn {
   font-family: var(--font-primary);
@@ -182,26 +149,22 @@ img {
   cursor: pointer;
   border: 2px solid transparent;
   transition: var(--transition);
-  text-align: center;
-  user-select: none;
+  text-decoration: none;
 }
 
 .btn-primary {
   background-color: var(--primary);
   color: var(--white);
-  box-shadow: 0 4px 14px 0 rgba(210, 36, 42, 0.3);
-
   &:hover {
     background-color: var(--primary-hover);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(210, 36, 42, 0.2);
   }
 }
 
 .btn-outline {
   border: 2px solid var(--secondary);
   color: var(--secondary);
-
+  background: transparent;
   &:hover {
     background-color: var(--secondary);
     color: var(--white);
@@ -210,33 +173,20 @@ img {
 }
 
 /* ==========================================================================
-   MEDIA QUERIES (RESPONSIVE)
+   MEDIA QUERIES
    ========================================================================== */
-@media (max-width: 991px) {
-  html {
-    scroll-padding-top: var(--navbar-height);
-  }
-}
-
 @media (max-width: 768px) {
   :root {
     --section-padding: 60px 15px;
   }
-
   h1 {
     font-size: 2.25rem;
   }
-  h2 {
-    font-size: 1.8rem;
-    &::after {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-
   .btn {
-    padding: 12px 24px;
-    font-size: 0.85rem;
     width: 100%;
+  }
+  h2::after {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

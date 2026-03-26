@@ -1,0 +1,89 @@
+<!-- ==========================================================================
+     NAVBAR COMPONENT STRUCTURE
+     ======================================================================= -->
+
+<header class="header-wrapper">
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="contact-info">
+        <a href="tel:+525555571966" class="contact-item">
+          <img
+            src="assets/brand/socials/phone.svg"
+            alt="Icono de Teléfono"
+            class="contact-icon-svg"
+          />
+          <span>(55) 5557 1966</span>
+        </a>
+        <span class="contact-divider" aria-hidden="true"></span>
+        <a href="mailto:servicioaclientes@austromex.com.mx" class="contact-item">
+          <img src="assets/brand/socials/mail.svg" alt="Icono de Correo" class="contact-icon-svg" />
+          <span>servicioaclientes@austromex.com.mx</span>
+        </a>
+      </div>
+      <!-- SOCIAL MEDIA -->
+      <app-social-links></app-social-links>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="container navbar-content">
+      <!-- LOGOS -->
+      <div class="brand-group">
+        <a
+          [routerLink]="['/']"
+          fragment="inicio"
+          class="logo-link"
+          (click)="closeMenu()"
+          title="Ir al inicio - Austromex"
+        >
+          <img
+            src="assets/brand/AUSTROMEX.svg"
+            alt="Distribuidor Autorizado Austromex"
+            class="logo-partner-img"
+          />
+        </a>
+
+        <div class="brand-divider" aria-hidden="true"></div>
+
+        <a
+          [routerLink]="['/']"
+          fragment="inicio"
+          class="logo-link"
+          (click)="closeMenu()"
+          title="Mersol Sureste"
+        >
+          <img src="assets/brand/MERSOL.svg" alt="Mersol Sureste" class="logo-mersol" />
+        </a>
+      </div>
+
+      <!-- MENU TOGGLE -->
+      <button
+        class="menu-toggle"
+        (click)="toggleMenu()"
+        [class.open]="isMenuOpen"
+        aria-label="Abrir menú de navegación"
+        [attr.aria-expanded]="isMenuOpen"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- NAVIGATION LINKS -->
+      <ul class="nav-links" [class.active]="isMenuOpen">
+        <li><a [routerLink]="['/']" fragment="inicio" (click)="closeMenu()">Inicio</a></li>
+        <li><a [routerLink]="['/']" fragment="nosotros" (click)="closeMenu()">Nosotros</a></li>
+        <li><a [routerLink]="['/']" fragment="productos" (click)="closeMenu()">Productos</a></li>
+
+        <!-- BUTTON (CTA) -->
+        <li class="nav-cta">
+          <a [routerLink]="['/']" fragment="contacto" class="btn btn-primary" (click)="closeMenu()">
+            Cotizar Ahora
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

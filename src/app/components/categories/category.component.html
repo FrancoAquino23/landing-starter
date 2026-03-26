@@ -1,0 +1,44 @@
+<!-- ==========================================================================
+     CATEGORY COMPONENT STRUCTURE
+     ========================================================================== -->
+
+<!-- HEADER -->
+<div class="carousel-section-header">
+  <div class="section-title-wrapper">
+    <span class="section-subtitle">NUESTROS PRODUCTOS</span>
+    <h2 class="section-main-title">EXPLORA NUESTRO CATÁLOGO</h2>
+  </div>
+</div>
+
+<div class="carousel-container">
+  <!-- RETURN BUTTON -->
+  <button class="nav-btn prev" (click)="scroll(-1, true)" aria-label="Ver categorías anteriores">
+    <span class="arrow">&lsaquo;</span>
+  </button>
+
+  <!-- CAROUSEL -->
+  <div class="carousel-track" #carouselTrack>
+    @for (category of displayCategories(); track $index) {
+      <div class="category-card" (click)="onCategoryClick(category)" role="button" tabindex="0">
+        <div class="card-image-wrapper">
+          <img [src]="category.image" [alt]="category.title" loading="lazy" class="category-img" />
+        </div>
+
+        <div class="card-footer">
+          <h3 class="category-title">{{ category.title }}</h3>
+          <span class="category-link">
+            VER PRODUCTOS
+            <span class="icon-arrow">&rarr;</span>
+          </span>
+        </div>
+
+        <div class="color-bar" [style.background-color]="category.color"></div>
+      </div>
+    }
+  </div>
+
+  <!-- FORWARD BUTTON -->
+  <button class="nav-btn next" (click)="scroll(1, true)" aria-label="Ver siguientes categorías">
+    <span class="arrow">&rsaquo;</span>
+  </button>
+</div>

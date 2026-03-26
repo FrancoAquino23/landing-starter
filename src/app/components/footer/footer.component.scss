@@ -1,0 +1,263 @@
+/* ==========================================================================
+   FOOTER COMPONENT STYLES
+   ========================================================================== */
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.main-footer {
+  background-color: var(--secondary);
+  color: #cccccc;
+  font-family: 'Halenoir', sans-serif;
+  position: relative;
+  padding-bottom: 20px;
+
+  .footer-cta-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, #a81d22 100%);
+    padding: 15px 0;
+    margin-bottom: 35px;
+    box-shadow: var(--shadow-sm);
+
+    .cta-content-inline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+
+      .cta-text .single-line-question {
+        color: var(--white);
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+
+      .btn-whatsapp-cta {
+        background-color: var(--white);
+        color: var(--primary);
+        padding: 10px 22px;
+        border-radius: 4px;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: none;
+        cursor: pointer;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .wa-icon {
+          width: 18px;
+          filter: invert(15%) sepia(95%) saturate(4000%) hue-rotate(350deg);
+        }
+      }
+    }
+  }
+
+  .footer-main-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.6fr;
+    gap: 2.5rem;
+    padding-bottom: 35px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    align-items: start;
+  }
+
+  .branding {
+    .brand-partnership {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 1.2rem;
+
+      .brand-logo-clean {
+        height: auto;
+        &.main-logo {
+          height: 50px;
+        }
+        &.mersol-logo {
+          height: 42px;
+        }
+      }
+
+      .brand-separator {
+        width: 1px;
+        height: 35px;
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    .brand-tagline {
+      font-size: 0.85rem;
+      color: #bbbbbb;
+      margin: 0;
+    }
+  }
+
+  .footer-col {
+    h4 {
+      font-size: 0.9rem;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 25px;
+        height: 2px;
+        background-color: var(--primary);
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 0.7rem;
+        font-size: 0.85rem;
+
+        &.icon-inline {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 0.8rem;
+        }
+
+        strong {
+          color: #eeeeee;
+          display: block;
+          font-size: 0.75rem;
+          margin-bottom: 3px;
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          transition: color 0.3s ease;
+          &:hover {
+            color: var(--primary);
+          }
+        }
+
+        .li-icon {
+          width: 15px;
+          filter: brightness(0) invert(0.8);
+        }
+      }
+    }
+  }
+
+  .products-nav {
+    .products-grid-wrapper {
+      display: flex;
+      gap: 30px;
+
+      .resource-links {
+        flex: 1;
+        li {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .social-wrapper {
+    margin-top: 1.5rem;
+    .social-label {
+      color: #eeeeee;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .footer-social-icons {
+      display: flex;
+      gap: 15px;
+      img {
+        width: 18px;
+        filter: brightness(0) invert(0.8);
+        transition: all 0.3s ease;
+        &:hover {
+          transform: translateY(-3px);
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    padding: 20px 0;
+    font-size: 0.8rem;
+    color: #777777;
+    text-align: left;
+  }
+}
+
+/* ==========================================================================
+   FOOTER COMPONENT STYLES (MEDIA QUERIES)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .main-footer .footer-main-grid {
+    grid-template-columns: 1fr 1fr;
+    .branding {
+      grid-column: span 2;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main-footer {
+    .footer-cta-banner .cta-content-inline {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .footer-main-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 2.5rem;
+    }
+
+    .footer-col h4::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .footer-col ul li.icon-inline {
+      justify-content: center;
+    }
+
+    .products-nav .products-grid-wrapper {
+      flex-direction: column;
+      gap: 0;
+      .resource-links li {
+        white-space: normal;
+      }
+    }
+
+    .social-wrapper .footer-social-icons {
+      justify-content: center;
+    }
+
+    .footer-bottom {
+      text-align: center;
+    }
+  }
+}

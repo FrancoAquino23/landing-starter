@@ -1,0 +1,50 @@
+<!-- ==========================================================================
+     HERO COMPONENT STRUCTURE
+     ========================================================================== -->
+
+<section
+  class="hero-section"
+  id="inicio"
+  [style.backgroundImage]="
+    'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(' + backgroundImage + ')'
+  "
+>
+  <div class="container">
+    <div class="hero-grid">
+      <!-- ACTIONS -->
+      <div class="hero-content">
+        <span class="brand-badge">Mersol Sureste</span>
+
+        <h1 [innerHTML]="title"></h1>
+
+        <p class="hero-tagline">{{ subtitle }}</p>
+
+        <div class="hero-actions">
+          <a
+            href="https://wa.me/529990000000?text=Hola,%20me%20gustaría%20solicitar%20una%20cotización"
+            target="_blank"
+            class="btn btn-primary"
+            rel="noopener noreferrer"
+          >
+            {{ primaryCtaText }}
+          </a>
+
+          <button (click)="scrollToSection('nosotros')" class="btn btn-outline">
+            {{ secondaryCtaText }}
+          </button>
+        </div>
+      </div>
+
+      <!-- VISUALS -->
+      <div class="hero-visual">
+        <div class="experience-badge">
+          <div class="exp-content">
+            <span class="exp-number">+10</span>
+            <span class="exp-text">Años de<br />Experiencia</span>
+          </div>
+          <div class="exp-decoration"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

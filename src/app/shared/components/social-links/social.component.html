@@ -1,0 +1,17 @@
+<!-- ==========================================================================
+     SOCIAL MEDIA STRUCTURE
+     ======================================================================= -->
+
+<div class="social-container">
+  @for (link of socialNetworks(); track link.name) {
+    <a
+      [href]="link.url"
+      target="_blank"
+      rel="noopener noreferrer"
+      [title]="link.name + ' Mersol'"
+      class="social-link"
+    >
+      <img [src]="link.icon" [alt]="link.name" class="social-icon" />
+    </a>
+  }
+</div>

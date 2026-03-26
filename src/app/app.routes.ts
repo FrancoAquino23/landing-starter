@@ -1,18 +1,19 @@
+/* ==========================================================================
+   ROOT COMPONENT ROUTES
+   ========================================================================== */
+
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./pages/landing-demo.component/landing-demo.component').then(
-        (m) => m.LandingDemoComponent,
-      ),
+      import('./pages/landing/landing.component').then((m) => m.LandingComponent),
 
     data: {
-      title: 'Mersol | Soluciones Industriales y Distribuidor Austromex',
-      description:
-        'Expertos en equipos de soldadura y consumibles industriales. La solución integral para tu empresa.',
-      ogImage: 'assets/landing/landing-demo/og-main.jpg',
+      title: 'Mersol Sureste | Soluciones en Soldadura y Abrasivos',
+      description: 'Líderes en equipos y consumibles industriales en el sureste mexicano.',
+      ogImage: 'assets/brand/og-main.jpg',
     },
   },
   {

@@ -1,6 +1,9 @@
+/* ==========================================================================
+     ROOT COMPONENT CONFIGURATION 
+   ========================================================================== */
+
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter, withInMemoryScrolling, withRouterConfig } from '@angular/router';
-
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -9,7 +12,6 @@ export const appConfig: ApplicationConfig = {
       routes,
       withInMemoryScrolling({
         anchorScrolling: 'enabled',
-
         scrollPositionRestoration: 'enabled',
       }),
       withRouterConfig({

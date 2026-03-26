@@ -1,0 +1,206 @@
+/* ==========================================================================
+   INFO COMPONENT STYLES 
+   ========================================================================== */
+
+.nosotros-section {
+  padding: 140px 0 60px;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 5;
+
+  .scroll-anchor {
+    position: absolute;
+    top: -120px;
+  }
+
+  .nosotros-main {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 2.5rem;
+
+    .nosotros-content {
+      margin-top: 5px;
+
+      .subtitle {
+        display: block;
+        font-family: var(--font-main);
+        color: #d2242a;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 0.8rem;
+        font-size: 0.85rem;
+      }
+
+      h2 {
+        margin-bottom: 1.5rem;
+        font-family: var(--font-primary);
+        color: #403b33;
+        position: relative;
+        padding-left: 20px;
+        border-left: 5px solid #d2242a;
+        line-height: 1.1;
+        font-size: 2.2rem;
+      }
+
+      .description {
+        font-family: var(--font-main);
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: #706e70;
+        margin-bottom: 0;
+
+        strong {
+          color: #403b33;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .nosotros-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+
+    .stat-card {
+      background-color: #ffffff;
+      padding: 30px 20px;
+      border-radius: 8px;
+      text-align: center;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+      border: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      &.highlight-red {
+        background-color: #d2242a;
+        border-color: #d2242a;
+        .stat-number,
+        .stat-label {
+          color: #ffffff;
+        }
+      }
+
+      .stat-number {
+        display: block;
+        font-family: var(--font-primary);
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #d2242a;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .stat-label {
+        font-family: var(--font-main);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #403b33;
+      }
+    }
+
+    .osa-tag-full {
+      grid-column: span 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 15px;
+      border: 1px dashed #a3a19e;
+      border-radius: 8px;
+
+      .osa-icon {
+        width: 28px;
+        filter: invert(19%) sepia(88%) saturate(3942%) hue-rotate(348deg) brightness(89%)
+          contrast(92%);
+      }
+    }
+  }
+
+  .nosotros-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+    .info-card {
+      background-color: #ffffff;
+      padding: 30px 25px;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+      text-align: center;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+      }
+
+      .card-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+
+        .pilar-icon {
+          width: 35px;
+          filter: invert(19%) sepia(88%) saturate(3942%) hue-rotate(348deg) brightness(89%)
+            contrast(92%);
+        }
+
+        h3 {
+          font-size: 1.1rem;
+          color: #403b33;
+          font-family: var(--font-primary);
+          margin: 0;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   INFO COMPONENT STYLES (MEDIA QUERIES)
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  .nosotros-section {
+    padding: 80px 0 40px;
+    .nosotros-main {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .nosotros-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .nosotros-section {
+    .nosotros-stats-grid {
+      grid-template-columns: 1fr;
+    }
+    .nosotros-grid {
+      grid-template-columns: 1fr;
+    }
+    .osa-tag-full {
+      grid-column: span 1;
+    }
+  }
+}

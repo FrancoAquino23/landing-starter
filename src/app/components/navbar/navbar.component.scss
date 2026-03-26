@@ -1,0 +1,263 @@
+/* ==========================================================================
+    NAVBAR COMPONENT STYLES
+   ========================================================================== */
+
+@use 'sass:color';
+
+:host {
+  --nav-height: 85px;
+  --nav-bg: #ffffff;
+  --nav-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --primary-red: #d2242a;
+  display: block;
+}
+
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+    TOP BAR
+   ========================================================================== */
+
+.top-bar {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 10px 0;
+  font-size: 0.85rem;
+
+  @media (max-width: 991px) {
+    display: none;
+  }
+
+  .top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.7);
+      transition: var(--nav-transition);
+
+      .contact-icon-svg {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        background-color: #ffffff;
+        opacity: 0.6;
+        transition: var(--nav-transition);
+
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+
+        &[src*='phone'] {
+          -webkit-mask-image: url('../../../assets/brand/socials/phone.svg');
+          mask-image: url('../../../assets/brand/socials/phone.svg');
+        }
+        &[src*='mail'] {
+          -webkit-mask-image: url('../../../assets/brand/socials/mail.svg');
+          mask-image: url('../../../assets/brand/socials/mail.svg');
+        }
+
+        content: '';
+      }
+
+      &:hover {
+        color: var(--primary-red);
+
+        .contact-icon-svg {
+          opacity: 1;
+          background-color: #ffffff;
+          transform: translateY(-1px) scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+    NAVBAR MAIN
+   ========================================================================== */
+
+.navbar {
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  background: var(--nav-bg);
+  border-bottom: 1px solid #f0f0f0;
+  z-index: 1200;
+
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 1301;
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  .logo-partner-img {
+    height: 55px;
+    width: auto;
+  }
+  .logo-mersol {
+    height: 40px;
+    width: auto;
+  }
+
+  .brand-divider {
+    width: 1px;
+    height: 30px;
+    background-color: #eee;
+  }
+
+  @media (max-width: 480px) {
+    .logo-partner-img {
+      height: 45px;
+    }
+    .logo-mersol {
+      height: 32px;
+    }
+  }
+}
+
+/* ==========================================================================
+    NAVIGATION LINKS
+   ========================================================================== */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li a {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--primary-red);
+    }
+  }
+
+  @media (max-width: 991px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    z-index: 1100;
+
+    &.active {
+      transform: translateX(0);
+    }
+
+    li a {
+      font-size: 1.8rem;
+      font-weight: 900;
+      padding: 10px 0;
+    }
+  }
+}
+
+/* ==========================================================================
+    NAVBAR COMPONENT STYLES (MEDIA QUERIES)
+   ========================================================================== */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  z-index: 1300;
+  padding: 0;
+
+  span {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 3px;
+    transition: var(--nav-transition);
+  }
+
+  @media (max-width: 991px) {
+    display: flex;
+  }
+
+  &.open span {
+    &:nth-child(1) {
+      transform: translateY(8.5px) rotate(45deg);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: translateY(-8.5px) rotate(-45deg);
+    }
+  }
+}
+
+.nav-cta {
+  .btn-primary {
+    background-color: var(--primary-red);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--nav-transition);
+
+    &:hover {
+      background-color: color.adjust(#d2242a, $lightness: -10%);
+      transform: translateY(-2px);
+    }
+  }
+}
