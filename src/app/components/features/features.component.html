@@ -1,0 +1,36 @@
+<!-- ==========================================================================
+     FEATURES COMPONENT STRUCTURE
+     ======================================================================= -->
+
+<section class="features-container" aria-label="Nuestras ventajas competitivas">
+  <div class="container">
+    <div class="features-header">
+      <h2>¿Por qué elegir Mersol Sureste?</h2>
+    </div>
+    <!-- CARD -->
+    <div class="features-grid">
+      @for (item of features; track item.title) {
+        <article class="feature-card">
+          <div class="icon-wrapper">
+            <img
+              [src]="ICON_PATH + item.icon"
+              [alt]="item.title"
+              class="feature-icon"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- CONTENT -->
+          <div class="feature-content">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.desc }}</p>
+          </div>
+        </article>
+      } @empty {
+        <div class="empty-state">
+          <p>Cargando beneficios de Mersol Sureste...</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

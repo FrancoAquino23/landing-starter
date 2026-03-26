@@ -1,16 +1,22 @@
 /* ==========================================================================
-     LANDING PAGE LOGIC
-     ========================================================================== */
+     LANDING PAGE LOGIC 
+   ========================================================================== */
 
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+
+// Componentes principales
 import { HeroComponent } from '../../components/hero/hero.component';
 import { InfoComponent } from '../../components/info/info.component';
 import { BannerComponent } from '../../components/banner/banner.component';
 import { CategoryCarouselComponent } from '../../components/categories/category.component';
+import { FeaturesComponent } from '../../components/features/features.component';
+
+// Componentes compartidos
 import { ContactFormComponent } from '../../shared/components/contact-form/form.component';
+import { FaqComponent } from '../../shared/components/faq/faq.component';
 
 @Component({
   selector: 'app-landing',
@@ -21,7 +27,9 @@ import { ContactFormComponent } from '../../shared/components/contact-form/form.
     BannerComponent,
     InfoComponent,
     CategoryCarouselComponent,
+    FeaturesComponent,
     ContactFormComponent,
+    FaqComponent,
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
@@ -45,7 +53,7 @@ export class LandingComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  // Limpiar componente
+  // Limpiar componente (Optimización)
   ngOnDestroy(): void {
     if (this.fragmentSub) {
       this.fragmentSub.unsubscribe();
