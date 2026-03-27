@@ -1,0 +1,50 @@
+<!-- ==========================================================================
+      TESTIMONIALS COMPONENT STRUCTURE
+      ======================================================================= -->
+
+<section class="testimonials-section" aria-labelledby="testimonials-title">
+  <div class="container">
+    <!-- HEADER -->
+    <div class="section-header">
+      <span class="subtitle">Casos de Éxito</span>
+      <h2 id="testimonials-title">Lo que dicen nuestros clientes industriales</h2>
+      <div class="header-line"></div>
+    </div>
+
+    <div class="testimonials-grid">
+      @for (item of testimonials; track item.author) {
+        <article class="testimonial-card">
+          <!-- ICONS -->
+          <div class="quote-icon">
+            <img
+              src="assets/brand/icons/comment.svg"
+              alt="Icono Profesional"
+              class="testimonial-brand-icon"
+            />
+          </div>
+
+          <div class="rating-stars" aria-label="Calificación de 5 estrellas">
+            @for (star of getStars(item.rating); track $index) {
+              <img src="assets/brand/icons/star.svg" alt="Estrella" class="star-svg" />
+            }
+          </div>
+
+          <!-- TESTIMONIALS -->
+          <blockquote class="testimonial-body">
+            <p>"{{ item.quote }}"</p>
+          </blockquote>
+
+          <footer class="testimonial-footer">
+            <div class="author-info">
+              <span class="author-name">{{ item.author }}</span>
+              <span class="author-position">{{ item.position }}</span>
+              <span class="author-company">{{ item.company }}</span>
+            </div>
+          </footer>
+        </article>
+      } @empty {
+        <p class="empty-msg">Próximamente más historias de éxito en el sureste.</p>
+      }
+    </div>
+  </div>
+</section>

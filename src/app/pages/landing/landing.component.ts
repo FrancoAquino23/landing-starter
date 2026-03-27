@@ -1,5 +1,5 @@
 /* ==========================================================================
-     LANDING PAGE LOGIC 
+      LANDING PAGE LOGIC 
    ========================================================================== */
 
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
@@ -17,6 +17,7 @@ import { FeaturesComponent } from '../../components/features/features.component'
 // Componentes compartidos
 import { ContactFormComponent } from '../../shared/components/contact-form/form.component';
 import { FaqComponent } from '../../shared/components/faq/faq.component';
+import { TestimonialsComponent } from '../../shared/components/testimonials/testimonials.component';
 
 @Component({
   selector: 'app-landing',
@@ -30,6 +31,7 @@ import { FaqComponent } from '../../shared/components/faq/faq.component';
     FeaturesComponent,
     ContactFormComponent,
     FaqComponent,
+    TestimonialsComponent,
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
